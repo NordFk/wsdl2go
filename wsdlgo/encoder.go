@@ -1114,7 +1114,7 @@ func (ge *goEncoder) writeGoTypes(w io.Writer, d *wsdl.Definitions) error {
 		if err != nil {
 			return err
 		}
-		ge.genGoXMLTypeFunction(&b, ct)
+		// ge.genGoXMLTypeFunction(&b, ct)
 	}
 
 	// Operation wrappers - mainly used for rpc, not exclusively
@@ -1351,13 +1351,13 @@ func (ge *goEncoder) genGoStruct(w io.Writer, d *wsdl.Definitions, ct *wsdl.Comp
 
 	err := ge.genStructFields(w, d, ct)
 
-	if ct.ComplexContent != nil && ct.ComplexContent.Extension != nil {
-		fmt.Fprint(w, "TypeAttrXSI   string `xml:\"xsi:type,attr,omitempty\"`\n")
-		fmt.Fprint(w, "TypeNamespace string `xml:\"xmlns:objtype,attr,omitempty\"`\n")
-		fmt.Fprint(w, "\n")
-		fmt.Fprint(w, "OverrideTypeAttrXSI   *string `xml:\"-\"`\n")
-		fmt.Fprint(w, "OverrideTypeNamespace *string `xml:\"-\"`\n")
-	}
+	// if ct.ComplexContent != nil && ct.ComplexContent.Extension != nil {
+	// 	fmt.Fprint(w, "TypeAttrXSI   string `xml:\"xsi:type,attr,omitempty\"`\n")
+	// 	fmt.Fprint(w, "TypeNamespace string `xml:\"xmlns:objtype,attr,omitempty\"`\n")
+	// 	fmt.Fprint(w, "\n")
+	// 	fmt.Fprint(w, "OverrideTypeAttrXSI   *string `xml:\"-\"`\n")
+	// 	fmt.Fprint(w, "OverrideTypeNamespace *string `xml:\"-\"`\n")
+	// }
 	if err != nil {
 		return err
 	}
