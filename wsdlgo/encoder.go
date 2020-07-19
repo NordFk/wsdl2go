@@ -843,7 +843,7 @@ func (ge *goEncoder) inputParams(op *wsdl.Operation) ([]*parameter, error) {
 	}
 
 	// TODO: I had to disable this for my use case - do other use cases still work with false?
-	return ge.genParams(req, false), nil
+	return ge.genParams(req, true), nil
 }
 
 // returns list of function output parameters plus error.
