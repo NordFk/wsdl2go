@@ -469,11 +469,6 @@ func (ge *goEncoder) cacheSOAPOperations(d *wsdl.Definitions) {
 }
 
 var interfaceTypeT = template.Must(template.New("interfaceType").Parse(`
-// New{{.Name}} creates an initializes a {{.Name}}.
-func New{{.Name}}(cli *soap.Client) {{.Name}} {
-	return &{{.Impl}}{cli}
-}
-
 // {{.Name}} was auto-generated from WSDL
 // and defines interface for the remote service. Useful for testing.
 type {{.Name}} interface {
